@@ -17,3 +17,31 @@
 > Astuce pour retenir:
 > `A Peine Serré, Tu Rends Le Portefeuille`
 > En savoir plus sur: https://jeretiens.net/couches-du-modele-osi/
+
+## `dig`
+
+### DNS
+
+En faisant une requête, l'ordi contacte un DNS qui lui retourne une IP afin d'établir la communication.
+
+#### Recursive DNS Server
+
+Lorsque le DNS ne trouve pas l'IP associé il délégue au _recursive DNS server_ 
+Ces serveurs maintiennent un cache.
+
+#### Root Name Server
+
+Si le recursive DNS server n'a pas trouvé non plus, alors la demande est déléguée au _root name server_.
+Son rôle est de rediriger la requête vers le "next level down", en premier lieu : le Top Level Domain.
+
+#### Top Level Domain Server
+
+Chaque serveur est dédié à un nom de domaine en particulier _(ex: `.com`, `.ca`, `.fr`, etc)_
+Il conserve les informations du "next level down", le Authoritative Name Server.
+
+#### Authoritative Name Server
+
+L'Authoritative Name Server consigne les enregistrements DNS des domaines. 
+Ce sont les infos que l'on renseigne sur nos domaines, ex:
+`rachids.ca.             0       IN      A       109.234.164.40`
+Quand la requête atteint ce serveur, il lui répond par l'adresse IP associée au domaine de la requête et ainsi l'ordinateur peut établir la communication.
